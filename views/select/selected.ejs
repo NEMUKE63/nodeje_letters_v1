@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Nenngajo</title>
+        <meta name="discription" content="年賀状の送り先を決定するためのアンケートフォームです。">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
+        <link href="../stylesheets/style_now.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="../images/general/favicon.png">
+    </head>
+
+    <body>
+        <%- include("../header_partial", {message: "以下の内容で登録しました。"}) %>
+        <div class="wrapper">
+            <div class="section_title_1">はがきの印刷</div>
+            <div class="section_message_normal">選択されたはがきのPDFファイルを生成しました。はがきを印刷機にセットし、以下のボタンより印刷・ダウンロードを行ってください。印刷機の設定によっては印刷がずれる場合があります、事前にはがきと同等の大きさの用紙に試し刷りを行うことを推奨します。</div>
+            <div class="space_thiner"></div>
+            <div class="section_message_smaller">*印刷などに要する費用は利用者様負担になります。印刷に失敗した際の用紙・インクなどの費用も同様に、利用者様の負担となります。予めご承知おきください。</div>
+            <div class="file_printer_wrapper">
+                <div class="file_viewer">
+                    <div id="file_printer">
+                        <img src="../images/tables/<%= table_name_origin %>/print_letters_icon.png" alt="生成されたはがきのPDFファイルのアイコン">
+                        <!-- <div class="section_message_smaller">申し訳ありません。個人情報保護のため、現在この機能はご利用になれません。</div> -->
+                    </div>
+                </div>
+                <div class="file_printer_btns center_button .letters">
+                    <button type="button" onclick="location.href='/images/tables/<%= table_name_origin %>/<%= table_name_origin %>_white_letters.pdf'" class="btn print">印　刷</button>
+                    <a href="../images/tables/<%= table_name_origin %>/<%= table_name_origin %>_white_letters.pdf" download><button type="button" class="btn download">ダウンロード</button></a>
+                </div>
+            </div>
+            <div class="section_line_100"></div>
+            <div class="section_title_1">試し刷り用テンプレート</div>
+            <div class="section_message_normal">はがきの印刷に先んじて、試し刷り用のテンプレートをご用意しました。はがきと同等の大きさの用紙に印刷して、印刷用のはがきとずれが生じていないかをご確認ください。ずれが生じる場合はご自身の利用される印刷機の設定などから調整して下さい。</div>
+            <div class="space_thiner"></div>
+            <div class="section_message_smaller">*印刷用テンプレートの利用目的は印刷の事前確認にとどまります。この範囲の利用を逸脱した行為は認められません。疑義が生じた場合は、ページ下部の「お問い合わせ」よりご相談ください。</div>
+            <div class="file_printer_wrapper">
+                <div class="file_viewer">
+                    <div id="file_printer">
+                        <img src="../images/general/print_test.png" alt="生成されたはがきのPDFファイルのアイコン">
+                        <!-- <div class="section_message_smaller">申し訳ありません。個人情報保護のため、現在この機能はご利用になれません。</div> -->
+                    </div>
+                </div>
+                <div class="file_printer_btns center_button .test">
+                    <button type="button" onclick="location.href='/images/general/print_test.pdf'" class="btn print">印　刷</button>
+                    <a href="../images/general/print_test.pdf" download><button type="button" class="btn download">ダウンロード</button></a>
+                </div>
+            </div>
+            <div class="section_line_100"></div>
+            <div class="section_title_1">生成プレビュー画像</div>
+            <div class="section_message_normal">生成したはがきのプレビュー画像です。誤りがないかをご確認ください。誤りを確認した場合は、ページ末尾のボタンより、topページに戻ってやり直してください。</div>
+           <div class="space"></div>
+            <div class="grid">
+                <% for (let i in records) { %>
+                <% //console.log("record number:" + i) %> 
+                <%- include("hagaki_post_partial", {table_name_origin: table_name_origin, record: records[i]}) %>
+                <% } %> 
+            </div>
+        </div>
+        <div class="space"></div>
+        <button type="button" onclick="location.href='/file/'" class="btn">TOPへ</button>
+        <%- include("../footer_partial") %>
+        <script src="../javascripts/jquery-3.4.1.min.js"></script>
+        <script src="../javascripts/script_select.js"></script>
+        <script src="../javascripts/script.js"></script>
+    </body>
+</html>

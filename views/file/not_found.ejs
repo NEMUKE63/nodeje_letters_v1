@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not Found</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
+    <link href="../stylesheets/style_now.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/general/favicon.png">
+</head>
+<body>
+    <%- include("../header_partial", {message: "ダミーファイルが選択されました"}) %>
+    <div class="wrapper">
+        <%- include("../notification_partial", {title: "利用不可", message: "選択されたファイルはWebページのレイアウト確認ように用意されたものであり、はがきの生成などは行えません。Webページの機能を確認するには1つ前のページに戻り、「2022年度_理大祭用.csv」を選択してください。"}) %> 
+    </div>
+    <%- include("../footer_partial") %>
+    <script src="../javascripts/jquery-3.4.1.min.js"></script>
+    <script src="../javascripts/script.js"></script> 
+</body>
+</html>

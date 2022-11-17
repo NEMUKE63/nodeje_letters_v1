@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Nenngajo</title>
+        <meta name="discription" content="年賀状の送り先を決定するためのアンケートフォームです。">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
+        <link href="../stylesheets/style_now.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="../images/general/favicon.png">
+    </head>
+
+    <body>
+        <%- include("../header_partial", {message: "送付する宛先のみ選択してください。"}) %>
+        <div class="wrapper">
+            <%- include("../notification_partial",{title: "実際の個人情報は入力しないで下さい", message: "このwebサイトはあくまでサンプルであり、実際に個人情報を保護することを意図していません。そのため、くれぐれも実在の個人・団体等の情報は書き込まないようにお願いいたします。また、これらの警告を無視した操作に関しましても、当サイトは一切の責任を負いかねますので、あらかじめご承知おきください。万が一誤って入力した際は、訂正の上再度送信することで、情報はサーバーから消去されます。"}) %> 
+            <form method="post" action="/select/selected">
+                <div class="grid">
+                    <% for (let i in records) { %>
+                    <% //console.log("record number:" + i) %> 
+                    <%- include("hagaki_pre_partial", {table_name_origin: table_name_origin, record: records[i], address: address[i]}) %>
+                    <% } %> 
+                </div>
+                <div class="center_button">
+                    <!-- <input type="button" onclick="submit();" value="送　信" class="btn"> -->
+                    <button class="btn">送　信</button>
+                </div>
+            </form>
+        </div>
+        <%- include("../footer_partial") %>
+        <script src="../javascripts/jquery-3.4.1.min.js"></script>
+        <script src="../javascripts/script_select.js"></script>
+        <script src="../javascripts/script.js"></script>
+    </body>
+</html>

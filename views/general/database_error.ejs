@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database error</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
+    <link href="../stylesheets/style_now.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/general/favicon.png">
+</head>
+<body>
+    <%- include("../header_partial", {message: "データベースエラー"}) %>
+    <div class="wrapper">
+        <%- include("../notification_partial", {title: "データベースエラー", message: "データベースの接続に問題が生じました。以下の左側のボタンよりTOPページに戻り最初から操作をやり直してください。複数回同様の事象が見られる場合は、以下の枠内の内容をコピーのうえ、右側のボタンよりご報告ください。＊報告にはTwitterアカウントが必要です。"}) %> 
+        <div class="simple_frame section_message_smaller overflow_x">
+            <%= message %><br>
+            <%= url %><br>
+            <%= err %>
+        </div>
+        <div class="row_buttons">
+            <button type="button" onclick="location.href='/file/'" class="btn">戻　る</button>
+            <button type="button" onclick="location.href='/general/question'" class="btn">報　告</button>
+        </div>
+    </div>
+    <%- include("../footer_partial") %>
+    <script src="../javascripts/jquery-3.4.1.min.js"></script>
+    <script src="../javascripts/script.js"></script> 
+</body>
+</html>

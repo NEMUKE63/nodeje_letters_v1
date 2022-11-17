@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
+    <link href="../stylesheets/style_now.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/general/favicon.png">
+</head>
+<body>
+    <%- include("../header_partial", {message: "お問い合わせ先"}) %>
+    <div class="wrapper">
+        <div class="section_title_1">お問い合わせ</div>
+        <div class="section_message_normal">以下の手段より、お問い合わせください。ただし、問い合わせによって理想の結果が得られるとは限りません。あらかじめご承知おきください。</div>
+        <div class="space"></div>
+        <div class="icon_message twitter">
+            <a href="https://twitter.com/NEMUKE63"><img src="../images/general/twitter_logo.png" alt="ツイッターのロゴです。"></a>
+            <div>
+                <a href="https://twitter.com/NEMUKE63"><p class="section_title_1 twitter_text">@NEMUKE63</p></a>
+                <p class="section_message_normal twitter_text">Twitterのロゴをタップして、リプライやDMから問い合わせをお願いします。<br>*140字に収まらない場合はスクショなどをご活用ください。</p>
+            </div>
+        </div>
+    </div>
+    <%- include("../footer_partial") %>
+    <script src="../javascripts/jquery-3.4.1.min.js"></script>
+    <script src="../javascripts/script.js"></script> 
+</body>
+</html>

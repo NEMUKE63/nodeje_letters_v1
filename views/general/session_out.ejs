@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Out</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
+    <link href="../stylesheets/style_now.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/general/favicon.png">
+</head>
+<body>
+    <%- include("../header_partial", {message: "セッションが無効です。"}) %>
+    <div class="wrapper">
+        <%- include("../notification_partial", {title: "期限切れ", message: "セッション(あなたが誰かを識別するための一時的なID)が切れています。下のボタンより最初のページに戻り、操作をやり直してください。"}) %> 
+        <button type="button" onclick="location.href='/file/'" class="btn">TOPへ</button>
+    </div>
+    <%- include("../footer_partial") %>
+    <script src="../javascripts/jquery-3.4.1.min.js"></script>
+    <script src="../javascripts/script.js"></script> 
+</body>
+</html>

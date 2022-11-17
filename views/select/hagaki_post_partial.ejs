@@ -1,0 +1,6 @@
+<div class="item-post">
+    <figure class="hagaki_pic <%= "state" + record.state %>">
+        <img src="../images/tables/<%= table_name_origin %>/hagaki_red_back/hagaki<%= record.id %>.png" alt="<%= record.omitted_name + "様のはがき印刷プレビュー写真です" %>" onerror="this.src='../images/general/alternate.png'">
+    </figure>            
+    <div class="customer_name"><%= record.omitted_name %></div>
+</div>

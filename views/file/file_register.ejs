@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
+    <link href="../stylesheets/style_now.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/general/favicon.png">
+</head>
+<body>
+    <%- include("../header_partial", {message: "使用するファイルを選択/アップしてください。"}) %>
+    <div class="wrapper">
+        <div class="section_title_1">ファイルのアップロード ※停止中</div>
+        <div class="section_message_normal">以下よりデータベースへのcsvファイルの登録を行って下さい。ただし、現在この機能は使用いただけません。</div>
+        <form method="post" action="/file/column_selecter">
+            <div class="file_uploader_wrapper">
+                <div class="file_viewer">
+                    <div id="file_uploader">
+                        <input id="uploaded_file" type="file">
+                        <img src="../images/general/file_reject_icon.png" alt="現在ファイルの登録は行っていないことを示すアイコン">
+                        <div class="section_message_smaller">申し訳ありません。個人情報保護のため、現在この機能はご利用になれません。</div>
+                    </div>
+                </div>
+                <div class="file_uploader_btns center_button">
+                    <button type="button" class="btn">選　択</button>
+                    <button type="button" id="delete_file" class="btn">取　消</button>
+                    <button type="submit" class="btn">送　信</button> <!-- 実装時はtype="submit"に変更-->
+                </div>
+            </div>
+        </form>
+        <div class="section_line_100"></div>
+        <div class="section_title_1">過去のファイルからの選択</div>
+        <div class="section_message_normal">以下のファイルより、今年度利用するファイルを選択してください。ただし、現在はサンプルとして「2022年度_理大祭用.csv」のみを用意しております。他のファイルはレイアウト確認用のダミーファイルですので、ご留意ください。<br>なお、以下のファイルに保存した内容は予告なしに管理者が削除・変更する可能性があります。予めご承知おきください。</div>
+        <div class="file_selector_wrapper">
+            <div class="file_selector_item">
+                <a href="/select/selecting">
+                    <img src="../images/general/csv_file_icon.png" alt="サンプルとなるcsvファイルのアイコン">
+                    <p class="section_message_smaller">2022年度_理大祭用.csv</p>
+                </a>
+            </div>
+            <div class="file_selector_item">
+                <a href="/file/not_found">
+                    <img src="../images/general/csv_file_icon.png" alt="サンプルとなるcsvファイルのアイコン">
+                    <p class="section_message_smaller">ダミーファイル_利用不可_sample1.csv</p>
+                </a>
+            </div>
+            <div class="file_selector_item">
+                <a href="/file/not_found">
+                    <img src="../images/general/csv_file_icon.png" alt="サンプルとなるcsvファイルのアイコン">
+                    <p class="section_message_smaller">ダミーファイル_利用不可_sample2.csv</p>
+                </a>
+            </div>
+            <div class="file_selector_item">
+                <a href="/file/not_found">
+                    <img src="../images/general/csv_file_icon.png" alt="サンプルとなるcsvファイルのアイコン">
+                    <p class="section_message_smaller">ダミーファイル_利用不可_sample3.csv</p>
+                </a>
+            </div>
+            <div class="file_selector_item">
+                <a href="/file/not_found">
+                    <img src="../images/general/csv_file_icon.png" alt="サンプルとなるcsvファイルのアイコン">
+                    <p class="section_message_smaller">ダミーファイル_利用不可_sample4.csv</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <%- include("../footer_partial") %>
+    <% if (haveNotSession) { %>
+    <div class="agree_cookie_base">
+        <div class="wrapper">
+            <div class="agree_cookie">
+                <div class="cookie_message section_message_normal">
+                    このwebサイトでは、利用者の識別やサイトの利用状況の分析のため、cookieを使用していることがあります。このwebサイトの利用を続けることにより、利用者はcookieの利用を承認したものとみなされます。
+                </div>
+                <button type="button" class="btn cookie_btn">閉じる</button>
+            </div>
+        </div>
+    </div>
+    <% } %>
+    <script src="../javascripts/jquery-3.4.1.min.js"></script>
+    <script src="../javascripts/script_file.js"></script>
+    <script src="../javascripts/script.js"></script>
+</body>
+</html>

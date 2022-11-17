@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Column Selecter</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
+    <link href="../stylesheets/style_now.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/general/favicon.png">
+</head>
+<body>
+    <%- include("../header_partial", {message: "この機能はご利用にはなれません。"}) %>
+    <div class="wrapper">
+        <%- include("../notification_partial", {title: "お知らせ", message: "申し訳ありませんが、不特定多数の人が訪問すること、および、実際に個人情報が入力された際に、充分にそれらを保護することが困難であることを踏まえ、本機能は実装しておりません。１つ前の画面に戻って、操作をやり直してください。"}) %> 
+    </div>
+    <%- include("../footer_partial") %>
+    <script src="../javascripts/jquery-3.4.1.min.js"></script>
+    <script src="../javascripts/script.js"></script> 
+</body>
+</html>

@@ -1,0 +1,23 @@
+<div class="item" id="<%= record.id %>">
+    <input type="radio" name="state<%= record.id %>" value="1" <% if (record.state == 1 || record.state == null) { %><%= 'checked="checked"' %><% } %> class="gen">
+    <input type="radio" name="state<%= record.id %>" value="2" <% if (record.state == 2) { %><%= 'checked="checked"' %><% } %> class="temp">
+    <input type="radio" name="state<%= record.id %>" value="3" <% if (record.state == 3) { %><%= 'checked="checked"' %><% } %> class="never">
+    <figure class="hagaki_pic clickable">
+        <img src="../images/tables/<%= table_name_origin %>/hagaki_red_back/hagaki<%= record.id %>.png" alt="<%= record.omitted_name + "様のはがき印刷プレビュー写真です" %>" onerror="this.src='../images/general/alternate.png'">
+    </figure>            
+    <div class="customer_name editable"><%= record.omitted_name %></div>
+    <div class="separate_line"></div>
+    <div class="text_editter">
+        <div class="zip_code">
+            <label class="post_mark">〒</label>
+            <input type="text" name="zip_code_1st_<%= record.id %>" size="3" maxlength="3" pattern="[0-9]{3}" value="<%= record.zip_code_1st %>" class="addr_editter inline_block zip_code_1st">
+            <label>-</label>
+            <input type="text" name="zip_code_2nd_<%= record.id %>" size="4" maxlength="4" pattern="[0-9]{4}"  value="<%= record.zip_code_2nd %>" class="addr_editter inline_block zip_code_2nd">
+            <input type="text" name="name_1st_<%= record.id %>" maxlength="50" value="<%= record.printed_name_1st %>" placeholder="名前１行目" class="addr_editter block left name_1st">
+            <input type="text" name="name_2nd_<%= record.id %>" maxlength="50" value="<%= record.printed_name_2nd %>" placeholder="名前２行目" class="addr_editter block right name_2nd">
+            <input type="text" name="addr_1st_<%= record.id %>" maxlength="50" value="<%= address[0] %>" placeholder="住所１行目" class="addr_editter block left addr_1st">
+            <input type="text" name="addr_2nd_<%= record.id %>" maxlength="50" value="<%= address[1] %>" placeholder="住所２行目" class="addr_editter block right addr_2nd">
+            <input type="hidden" name="changed_<%= record.id %>" value="0" class="changed">
+        </div>
+    </div>
+</div>
